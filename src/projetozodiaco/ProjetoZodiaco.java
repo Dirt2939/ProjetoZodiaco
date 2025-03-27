@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 /**
- *
  * @author Rafael
  */
 public class ProjetoZodiaco {
@@ -18,11 +17,17 @@ public class ProjetoZodiaco {
         Scanner ler = new Scanner(System.in);
         Calendar hoje = Calendar.getInstance();
         
-        String nome, sexo, signo, cor;
-        int sexoRspt, diaNascimento, mesNascimento, anoNascimento, diaAtual, 
-            mesAtual, anoAtual, idade, numeroSorte, numCor;
-        boolean statusDia, statusMes, statusAno, mes28, mes30, mes31;
+        String nome, sexo, signo, cor, frase, descricao;
         
+        int sexoRspt, diaNascimento, mesNascimento, anoNascimento, diaAtual, 
+            mesAtual, anoAtual, idade, numeroSorte, numCor, numFrase,
+            modoExibicao;
+        
+        boolean statusDia, statusMes, statusAno, mes28, mes30, mes31,
+                exibicaoSimples, exibicaoDetalhada;
+        
+        exibicaoSimples = false;
+        exibicaoDetalhada = false;
         statusMes = false;
         statusDia = false;
         statusAno = false;
@@ -33,18 +38,119 @@ public class ProjetoZodiaco {
         diaNascimento = 0;
         mesNascimento = 0;
         anoNascimento = 0;
-        sexoRspt = 0;
-        idade = 0;
+        modoExibicao = 0;
         numeroSorte = 0;
+        sexoRspt = 0;
         numCor = 0;
+        idade = 0;
+        numFrase = 0;
         
         cor = "dourado";
         signo = "";
         sexo = "";
+        frase = "";
         
         diaAtual = hoje.get(Calendar.DATE);
         mesAtual = hoje.get(Calendar.MONTH) + 1;
         anoAtual = hoje.get(Calendar.YEAR);
+        
+        numFrase = 1 + (int)(Math.random() * 30);
+        
+        switch (numFrase) {
+        
+            case 1: frase = "Acredite, você é capaz de alcançar o impossível.";
+            break;
+            
+            case 2: frase = "Cada dia é uma nova chance para recomeçar.";
+            break;
+            
+            case 3: frase = "Seja a mudança que você quer ver no mundo.";
+            break;
+            
+            case 4: frase = "Nunca é tarde para tentar algo novo.";
+            break;
+            
+            case 5: frase = "O caminho mais longo começa com um único passo.";
+            break;
+            
+            case 6: frase = "Sonhe grande, trabalhe duro e conquiste tudo.";
+            break;
+            
+            case 7: frase = "A felicidade está nas pequenas coisas.";
+            break;
+            
+            case 8: frase = "Você é mais forte do que imagina.";
+            break;
+            
+            case 9: frase = "Transforme desafios em oportunidades.";
+            break;
+            
+            case 10: frase = "Escolha a esperança, e não o medo.";
+            break;
+            
+            case 11: frase = "A gratidão transforma simples momentos em dias extraordinários.";
+            break;
+            
+            case 12: frase = "Suas ações de hoje constroem seu amanhã.";
+            break;
+            
+            case 13: frase = "Confie no processo e continue em frente.";
+            break;
+            
+            case 14: frase = "Não tenha medo de falhar; tenha medo de não tentar.";
+            break;
+            
+            case 15: frase = "A beleza da vida está na jornada, não só no destino.";
+            break;
+            
+            case 16: frase = "Seja gentil, você nunca sabe a batalha que alguém está enfrentando.";
+            break;
+            
+            case 17: frase = "Você tem poder para criar sua própria sorte.";
+            break;
+            
+            case 18: frase = "Não compare sua jornada com a de ninguém; cada caminho é único.";
+            break;
+
+            case 19: frase = "Seja corajoso: a coragem é o primeiro passo para o sucesso.";
+            break;
+
+            case 20: frase = "Você é a pessoa mais importante na sua própria história.";
+            break;
+
+            case 21: frase = "Cada dificuldade traz uma lição escondida.";
+            break;
+
+            case 22: frase = "Faça do seu dia o melhor possível, mesmo em pequenos gestos.";
+            break;
+
+            case 23: frase = "Seja grato por onde está enquanto luta por onde quer chegar.";
+            break;
+
+            case 24: frase = "A persistência é o segredo para grandes conquistas.";
+            break;
+
+            case 25: frase = "A melhor maneira de prever o futuro é criá-lo.";
+            break;
+
+            case 26: frase = "Onde houver sombras, busque a luz.";
+            break;
+
+            case 27: frase = "Aceite o que não pode mudar e mude o que não pode aceitar.";
+            break;
+
+            case 28: frase = "Nunca subestime o impacto de um sorriso."; 
+            break;
+
+            case 29: frase = "A vida é feita de escolhas; escolha ser feliz hoje.";
+            break;
+
+            case 30: frase = "Tudo começa com a sua atitude – mantenha-a positiva.";
+            break;
+            
+            default: frase = "Siga em frente, mas não ignore o passado";
+            
+        }
         
         System.out.println("Digite seu nome completo: ");
         nome = ler.nextLine();
@@ -55,7 +161,7 @@ public class ProjetoZodiaco {
         
         else { // Nome correto
         
-            System.out.println("Digite seu sexo: \n[1]Feminino [2]Masculino");
+            System.out.println("Digite seu sexo: \n[1] Feminino \n[2] Masculino");
             sexoRspt = ler.nextInt();
             
             switch (sexoRspt) {
@@ -84,6 +190,7 @@ public class ProjetoZodiaco {
             if (statusAno == true) { // Verifica se o ano é válido e continua 
             
             System.out.println("Digite o mês do seu nascimento: ");
+            System.out.println("Use por exemplo 2, e não, 02.");
             mesNascimento = ler.nextInt();
             
             if (mesNascimento == 4 || mesNascimento == 6 || mesNascimento == 9 ||
@@ -239,23 +346,77 @@ public class ProjetoZodiaco {
                 diaNascimento > diaAtual)) { idade--; }
                 // Bloco de cálculo da idade \\
                 
-                if (sexoRspt == 1) {
-                
-                    System.out.println("Sra. "+nome+", nascida em "+diaNascimento+"/"
-                    +mesNascimento+"/"+anoNascimento+", é do signo de "+signo+". "
-                    + "\nVocê tem "+idade+" anos. Seu número "
-                    + "da sorte é "+numeroSorte+" e sua cor é "+cor+".");
+                if (sexoRspt == 1) { // Se for mulher
                     
-                }
-                
-                else {
-                
-                    System.out.println("Sr. "+nome+", nascido em "+diaNascimento+"/"
-                    +mesNascimento+"/"+anoNascimento+", é do signo de "+signo+". "
-                    + "\nVocê tem "+idade+" anos. Seu número "
-                    + "da sorte é "+numeroSorte+" e sua cor é "+cor+".");
+                    System.out.println("Escolha o modo de exibição: ");
+                    System.out.println("[1] Simples \n[2] Detalhado");
+                    modoExibicao = ler.nextInt();
                     
-                }
+                    switch (modoExibicao) {
+                    
+                        case 1: exibicaoSimples = true; 
+                        break;
+                            
+                        case 2: exibicaoDetalhada = true;
+                        break;
+                        
+                        default: exibicaoSimples = true;
+                        break;
+                        
+                    }
+                    
+                    if (exibicaoSimples == true) {
+                    
+                        System.out.println("Nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
+                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte);
+                        
+                    }
+                    
+                    else if (exibicaoDetalhada == true) {
+                    
+                        System.out.println("nome: "+nome+"\nSexo"+sexo+"\nSigno: "+signo
+                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte
+                        + "\nCor da sorte: "+cor+"\nFrase motivacional: "+frase);
+                        
+                    }
+                    
+                } // Se for mulher \\
+                
+                else { // Se for homem
+                
+                    System.out.println("Escolha o modo de exibição: ");
+                    System.out.println("[1] Simples \n[2] Detalhado");
+                    modoExibicao = ler.nextInt();
+                    
+                    switch (modoExibicao) {
+                    
+                        case 1: exibicaoSimples = true; 
+                        break;
+                            
+                        case 2: exibicaoDetalhada = true;
+                        break;
+                        
+                        default: exibicaoSimples = true;
+                        break;
+                        
+                    }
+                    
+                    if (exibicaoSimples == true) {
+                    
+                        System.out.println("Nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
+                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte);
+                        
+                    }
+                    
+                    else if (exibicaoDetalhada == true) {
+                    
+                        System.out.println("nome: "+nome+"\nSexo"+sexo+"\nSigno: "+signo
+                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte
+                        + "\nCor da sorte: "+cor+"\nFrase motivacional: "+frase);
+                        
+                    }
+                    
+                } // Se for homem \\
             
             } // Verifica se a data é válida e continua
             
