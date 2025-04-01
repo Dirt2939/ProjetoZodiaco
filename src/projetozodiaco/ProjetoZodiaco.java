@@ -374,7 +374,7 @@ public class ProjetoZodiaco {
                     
                     else if (exibicaoDetalhada == true) {
                     
-                        System.out.println("nome: "+nome+"\nSexo"+sexo+"\nSigno: "+signo
+                        System.out.println("nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
                         + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte
                         + "\nCor da sorte: "+cor+"\nFrase motivacional: "+frase);
                         
@@ -410,7 +410,7 @@ public class ProjetoZodiaco {
                     
                     else if (exibicaoDetalhada == true) {
                     
-                        System.out.println("nome: "+nome+"\nSexo"+sexo+"\nSigno: "+signo
+                        System.out.println("nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
                         + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte
                         + "\nCor da sorte: "+cor+"\nFrase motivacional: "+frase);
                         
