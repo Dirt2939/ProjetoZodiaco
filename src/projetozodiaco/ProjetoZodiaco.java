@@ -193,13 +193,15 @@ public class ProjetoZodiaco {
             System.out.println("Use por exemplo 2, e não, 02.");
             mesNascimento = ler.nextInt();
             
+            if (anoNascimento == anoAtual && mesNascimento <= mesAtual) {
+            
             if (mesNascimento == 4 || mesNascimento == 6 || mesNascimento == 9 ||
                 mesNascimento == 11) { // Mês dura 30 dias
                 
-                    statusMes = true;
-                    mes30 = true;
+                statusMes = true;
+                mes30 = true;
                     
-                } // Mês dura 30 dias \\ 
+            } // Mês dura 30 dias \\ 
                 
             else if (mesNascimento == 1 || mesNascimento == 3 || mesNascimento == 5
                 || mesNascimento == 7 || mesNascimento == 8 || mesNascimento == 10
@@ -219,6 +221,40 @@ public class ProjetoZodiaco {
             
             else { statusMes = false; } // Caso o mes for inválido \\
                 
+            }
+            
+            else if (anoNascimento != anoAtual) {
+            
+            if (mesNascimento == 4 || mesNascimento == 6 || mesNascimento == 9 ||
+                mesNascimento == 11) { // Mês dura 30 dias
+                
+                statusMes = true;
+                mes30 = true;
+                    
+            } // Mês dura 30 dias \\ 
+                
+            else if (mesNascimento == 1 || mesNascimento == 3 || mesNascimento == 5
+                || mesNascimento == 7 || mesNascimento == 8 || mesNascimento == 10
+                || mesNascimento ==12) { // Mês dura 31 dias
+                
+                    statusMes = true;
+                    mes31 = true;
+                    
+            } // Mês dura 31 dias \\
+                
+            else if (mesNascimento == 2) { // Mês dura 28 dias
+                 
+                    statusMes = true;
+                    mes28 = true;
+                     
+            } // Mês dura 28 dias \\
+            
+            else { statusMes = false; } // Caso o mes for inválido \\
+                
+            }
+            
+            else { statusMes = false; }
+                
             } // Verifica se o ano é válido e continua \\
             
             else {statusMes = false;}
@@ -228,7 +264,9 @@ public class ProjetoZodiaco {
             System.out.println("Digite o dia do seu nascimento: ");
             diaNascimento = ler.nextInt();
             
-            if (mes30 == true) { // Bloco que verifica se o dia condiz com o mês
+            if (mesNascimento == mesAtual && diaNascimento <= diaAtual) {
+            
+                if (mes30 == true) { // Bloco que verifica se o dia condiz com o mês
             
                 if (diaNascimento >= 1 && diaNascimento <= 30) { 
                     
@@ -256,6 +294,46 @@ public class ProjetoZodiaco {
                     
                 }
                       
+            }
+            
+            else { statusDia = false; }
+                
+            }
+            
+            else if (mesNascimento != mesAtual) {
+            
+                if (mes30 == true) { // Bloco que verifica se o dia condiz com o mês
+            
+                if (diaNascimento >= 1 && diaNascimento <= 30) { 
+                    
+                    statusDia = true; 
+                    
+                }
+                
+            } 
+            
+            else if (mes31 == true) { // Bloco que verifica se o dia condiz com o mês
+            
+                if (diaNascimento >= 1 && diaNascimento <= 31) {
+                
+                    statusDia = true; 
+                    
+                }
+                
+            } // Bloco que verifica se o dia condiz com o mês \\
+            
+            else if (mes28 == true) {
+            
+                if (diaNascimento >= 1 && diaNascimento <= 28) {
+                
+                    statusDia = true; 
+                    
+                }
+                      
+            }
+            
+            else { statusDia = false; }
+                
             }
             
             else { statusDia = false; }
