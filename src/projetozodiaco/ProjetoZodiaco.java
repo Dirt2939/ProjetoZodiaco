@@ -17,7 +17,7 @@ public class ProjetoZodiaco {
         Scanner ler = new Scanner(System.in);
         Calendar hoje = Calendar.getInstance();
         
-        String nome, sexo, signo, cor, frase, descricao;
+        String nome, sexo, signo, cor, frase;
         
         int sexoRspt, diaNascimento, mesNascimento, anoNascimento, diaAtual, 
             mesAtual, anoAtual, idade, numeroSorte, numCor, numFrase,
