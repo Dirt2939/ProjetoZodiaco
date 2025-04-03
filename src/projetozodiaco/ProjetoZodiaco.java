@@ -381,9 +381,7 @@ public class ProjetoZodiaco {
                 
             else { 
                 
-                System.out.println("Erro!");
-                System.out.println("Se estás a ver essa mensagem de erro"
-                    + " é porque nem eu sei o que houve, lamento."); }
+                System.out.println("Erro!"); }
                 
                 if (signo.length() > 1) { // Se o signo tiver sido determinado
                 
@@ -423,8 +421,6 @@ public class ProjetoZodiaco {
                 if (mesNascimento > mesAtual || (mesNascimento == mesAtual && 
                 diaNascimento > diaAtual)) { idade--; }
                 // Bloco de cálculo da idade \\
-                
-                if (sexoRspt == 1) { // Se for mulher
                     
                     System.out.println("Escolha o modo de exibição: ");
                     System.out.println("[1] Simples \n[2] Detalhado");
@@ -458,55 +454,13 @@ public class ProjetoZodiaco {
                         
                     }
                     
-                } // Se for mulher \\
-                
-                else { // Se for homem
-                
-                    System.out.println("Escolha o modo de exibição: ");
-                    System.out.println("[1] Simples \n[2] Detalhado");
-                    modoExibicao = ler.nextInt();
-                    
-                    switch (modoExibicao) {
-                    
-                        case 1: exibicaoSimples = true; 
-                        break;
-                            
-                        case 2: exibicaoDetalhada = true;
-                        break;
-                        
-                        default: exibicaoSimples = true;
-                        break;
-                        
-                    }
-                    
-                    if (exibicaoSimples == true) {
-                    
-                        System.out.println("Nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
-                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte);
-                        
-                    }
-                    
-                    else if (exibicaoDetalhada == true) {
-                    
-                        System.out.println("nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
-                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte
-                        + "\nCor da sorte: "+cor+"\nFrase motivacional: "+frase);
-                        
-                    }
-                    
-                } // Se for homem \\
-            
             } // Verifica se a data é válida e continua
-            
-            
             
             else  {
                 
                 System.out.println("Data inválida."); 
                 
             }
-            
-            
             
             } // Nome correto \\       
             
