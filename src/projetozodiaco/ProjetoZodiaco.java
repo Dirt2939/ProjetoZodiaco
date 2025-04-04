@@ -9,17 +9,15 @@ import java.util.Scanner;
 /**
  * @author Rafael
  */
-public class ProjetoZodiaco {
+public class ProjetoZodiaco { // Chave da Classe
 
     
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Chave do Main
         
-        // 
         Scanner ler = new Scanner(System.in);
         Calendar hoje = Calendar.getInstance();
         
-        // Definindo variáveis
-        String nome, sexo, signo, cor, frase;   
+        String nome, sexo, signo, cor, frase;
         
         int sexoRspt, diaNascimento, mesNascimento, anoNascimento, diaAtual, 
             mesAtual, anoAtual, idade, numeroSorte, numCor, numFrase,
@@ -47,23 +45,23 @@ public class ProjetoZodiaco {
         idade = 0;
         numFrase = 0;
         
-        cor = "dourado";
+        cor = "";
         signo = "";
         sexo = "";
         frase = "";
-        // Definindo variáveis \\
         
-        // Vê qual o dia, mês e ano atual
-        diaAtual = hoje.get(Calendar.DATE); 
+        // Define as variaveis para o dia, mes e ano atual
+        diaAtual = hoje.get(Calendar.DATE);
         mesAtual = hoje.get(Calendar.MONTH) + 1;
         anoAtual = hoje.get(Calendar.YEAR);
-        // Vê qual o dia, mês e ano atual //
+        // Define as variaveis para o dia, mes e ano atual \\
         
-        // Randomiza um número de 1 a 30 para usar na escolha das frases motivacionais
+        // Randomiza um numero de 1 a 30
         numFrase = 1 + (int)(Math.random() * 30);
-        // Randomiza um número de 1 a 30 para usar na escolha das frases motivacionais//
+        // Randomiza um numero de 1 a 30 //
         
-        switch (numFrase) { // Usa o numFrase para randomizar as frases
+        // Usa o numFrase para escolher a frase 
+        switch (numFrase) {
         
             case 1: frase = "Acredite, você é capaz de alcançar o impossível.";
             break;
@@ -157,7 +155,8 @@ public class ProjetoZodiaco {
             
             default: frase = "Siga em frente, mas não ignore o passado";
             
-        } // Usa o numFrase para randomizar as frases \\
+        }
+        // Usa o numFrase para escolher a frase 
         
         System.out.println("Digite seu nome completo: ");
         nome = ler.nextLine();
@@ -171,11 +170,11 @@ public class ProjetoZodiaco {
             System.out.println("Digite seu sexo: \n[1] Feminino \n[2] Masculino");
             sexoRspt = ler.nextInt();
             
-            switch (sexoRspt) { // Escolhe o sexo de acordo com a resposta do usuário
+            switch (sexoRspt) {
             
                 case 1:
                     sexo = "feminino";
-                    break; 
+                    break;
                     
                 case 2:
                     sexo = "masculino";
@@ -184,7 +183,7 @@ public class ProjetoZodiaco {
                 default:
                     sexo = "masculino";
                 
-            } // Escolhe o sexo de acordo com a resposta do usuário \\
+            }
             
             System.out.println("Digite o ano do seu nascimento: ");
             anoNascimento = ler.nextInt();
@@ -197,7 +196,6 @@ public class ProjetoZodiaco {
             if (statusAno == true) { // Verifica se o ano é válido e continua 
             
             System.out.println("Digite o mês do seu nascimento: ");
-            System.out.println("Use por exemplo 2, e não, 02.");
             mesNascimento = ler.nextInt();
             
             if (anoNascimento == anoAtual && mesNascimento <= mesAtual) {
@@ -264,7 +262,7 @@ public class ProjetoZodiaco {
                 
             } // Verifica se o ano é válido e continua \\
             
-            else {statusMes = false;}
+            else {statusMes = false;} // Se o mês é inválido ele define o statusMes como inválido/false
                 
             if (statusMes == true) { // Verifica se o mês é válido e continua
                 
@@ -272,7 +270,6 @@ public class ProjetoZodiaco {
             diaNascimento = ler.nextInt();
             
             if (mesNascimento == mesAtual && diaNascimento <= diaAtual) {
-                // Verifica se a pessoa nasceu no futuro
             
                 if (mes30 == true) { // Bloco que verifica se o dia condiz com o mês
             
@@ -304,15 +301,53 @@ public class ProjetoZodiaco {
                       
             } // Bloco que verifica se o dia condiz com o mês \\
             
-            else { statusDia = false; } // Se o dia não condiz com o mês \\
+            else { statusDia = false; }
                 
-            } // Verifica se a pessoa nasceu no futuro \\
+            }
+            
+            else if (mesNascimento != mesAtual) { // Caso o mes for diferente do mes atual
+            
+                if (mes30 == true) { // Bloco que verifica se o dia condiz com o mês
+            
+                if (diaNascimento >= 1 && diaNascimento <= 30) { 
+                    
+                    statusDia = true; 
+                    
+                }
+                
+            } // Bloco que verifica se o dia condiz com o mês \\
+            
+            else if (mes31 == true) { // Bloco que verifica se o dia condiz com o mês
+            
+                if (diaNascimento >= 1 && diaNascimento <= 31) {
+                
+                    statusDia = true; 
+                    
+                }
+                
+            } // Bloco que verifica se o dia condiz com o mês \\
+            
+            else if (mes28 == true) { // Bloco que verifica se o dia condiz com o mês
+            
+                if (diaNascimento >= 1 && diaNascimento <= 28) {
+                
+                    statusDia = true; 
+                    
+                }
+                      
+            } // Bloco que verifica se o dia condiz com o mês \\
+            
+            else { statusDia = false; }
+                
+            } // Caso o mes for diferente do mes atual \\
+            
+            else { statusDia = false; }
                 
             } // Verifica se o mês é válido e continua \\
             
             if (statusDia == true && statusMes == true && statusAno == true) {
-                // Se a data é válida 
-            
+                // Verifica se a data é válida e continua
+            // Define o signo de acordo com as datas
             if ((diaNascimento >= 21 && mesNascimento == 3) || (diaNascimento >= 1
             && diaNascimento <= 20 && mesNascimento == 4)) {signo = "áries";}
             
@@ -348,9 +383,9 @@ public class ProjetoZodiaco {
             
             else if (diaNascimento >= 20 && mesNascimento == 2 || diaNascimento >= 1
                 && diaNascimento <= 20 && mesNascimento == 3) {signo = "peixes";}
-                
+                // Define o signo de acordo com as datas \\
             else { 
-                
+                // Se por algum motivo não dar certo
                 System.out.println("Erro!"); }
                 
                     numeroSorte = 1 + (int)(Math.random() * 99);
@@ -392,7 +427,7 @@ public class ProjetoZodiaco {
                     System.out.println("[1] Simples \n[2] Detalhado");
                     modoExibicao = ler.nextInt();
                     
-                    switch (modoExibicao) { // escolhe o modo de exibição
+                    switch (modoExibicao) { // Escolhe o mode de exibição de acordo com o usuário
                     
                         case 1: exibicaoSimples = true; 
                         break;
@@ -403,33 +438,33 @@ public class ProjetoZodiaco {
                         default: exibicaoSimples = true;
                         break;
                         
-                    } // escolhe o modo de exibição //
+                    } // Escolhe o mode de exibição de acordo com o usuário \\
                     
-                    if (exibicaoSimples == true) { // Se a exibição for simples
+                    if (exibicaoSimples == true) { // Se for exibição simples
                     
                         System.out.println("Nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
-                        + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte);
+                        + "\nIdade: "+idade);
                         
-                    } // Se a exibição for simples //
+                    } // Se for exibição simples
                     
-                    else if (exibicaoDetalhada == true) { // Se a exibição for detalhada
+                    else if (exibicaoDetalhada == true) { // Se for exibição detalhada
                     
                         System.out.println("nome: "+nome+"\nSexo: "+sexo+"\nSigno: "+signo
                         + "\nIdade: "+idade+"\nNúmero da sorte: "+numeroSorte
                         + "\nCor da sorte: "+cor+"\nFrase motivacional: "+frase);
                         
-                    } // Se a exibição for detalhada //
+                    } // Se for exibição detalhada \\
                     
-            } // Se a data é válida //
+            } // Verifica se a data é válida e continua
             
-            else  { // Se a data é inválida
+            else  { // Se a data for inválida
                 
                 System.out.println("Data inválida."); 
                 
-            } // Se a data é inválida //
+            } // Se a data for inválida \\
             
             } // Nome correto \\       
             
-        } 
+        } // Chave do Main
         
-    }
+    } // Chave da Classe
